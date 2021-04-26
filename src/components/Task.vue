@@ -4,6 +4,7 @@
             <i @click="onDelete(task.id)" class="fas fa-times"></i>
         </h4>
         <h5>{{task.text}} for {{task.day}}</h5>
+        <p>Toggle reminder: <i @click="toggleReminder(task.id)" class="fas fa-times"></i></p>
     </div>
 </template>
 
@@ -17,6 +18,10 @@ export default {
         onDelete(taskId) {
             console.log(taskId)
             this.$emit('delete-task', taskId)
+        },
+        toggleReminder(taskId) {
+            console.log('Toggling reminder')
+            this.$emit('toggle-reminder', taskId)
         }
     }
 }
